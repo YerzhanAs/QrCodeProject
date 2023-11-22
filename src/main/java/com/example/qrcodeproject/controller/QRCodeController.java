@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class QRCodeController {
 
 
-    private QRCodeService qrCodeService;
+    private final QRCodeService qrCodeService;
 
     @Autowired
     public QRCodeController(QRCodeService qrCodeService) {
