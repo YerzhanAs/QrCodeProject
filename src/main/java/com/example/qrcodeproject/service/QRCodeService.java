@@ -9,6 +9,7 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -19,6 +20,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
+@Transactional(readOnly = true)
 public class QRCodeService {
 
     private final QRCodeRepository qrCodeRepository;
@@ -28,6 +30,7 @@ public class QRCodeService {
         this.qrCodeRepository = qrCodeRepository;
     }
 
+    @Transactional
     public String generateQrCodeAndSave(String link){
         try {
             int width = 300;

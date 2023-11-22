@@ -30,7 +30,7 @@ public class QRCodeController {
         }
     }
 
-    @PostMapping("/generate")
+    @PostMapping("/generate2")
     public ResponseEntity<String> generateQRCodeWithBody(@RequestBody QRCodeRequest qrCodeRequest){
         String answer = qrCodeService.generateQrCodeAndSave(qrCodeRequest.getLink());
 
